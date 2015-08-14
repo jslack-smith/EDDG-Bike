@@ -13,6 +13,6 @@ This project is a Bike-Powered Sign, that uses a generator and battery managemen
 
 ##To-Do List
 - [ ] Interfaces
-	-[ ] 7 Segment Display (3 digits)
-	-[ ] LED Ring (16 segments)
+	- [ ] 7 Segment Display (3 digits)
+	- [ ] LED Ring (16 segments)
 - [ ] 

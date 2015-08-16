@@ -15,4 +15,10 @@ This project is a Bike-Powered Sign, that uses a generator and battery managemen
 - [ ] Interfaces
 	- [ ] 7 Segment Display (3 digits)
 	- [ ] LED Ring (16 segments)
-- [ ] 
+- [ ] Idle Mode
+- [ ] Start Sequence Countdown
+- [ ] Competition Mode
+- [ ] Display Final Score
+- [ ] Interrupts
+- 	[ ] Start button 
+- 	[ ] Timer

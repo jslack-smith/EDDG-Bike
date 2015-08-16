@@ -4,8 +4,9 @@
 //   Contains pin definitions
 
 //  LED Ring
-#define ring_dataPin    1
-#define ring_clkPin     1
+#define ring_dataPin    11
+#define ring_clkPin     12
+#define ring_latchPin   8
 
 
 // 7 Seg Display
@@ -20,11 +21,6 @@
 #define LDpin1          1
 #define LDpin2          1
 
-//extern const int ABCDpins[4];
-//extern const int LDpins[3];
-
-//extern int ABCD[4];
-//extern int digits[3];
 
 //  Bike panel
 

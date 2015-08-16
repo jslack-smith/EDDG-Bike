@@ -1,3 +1,6 @@
+// UsingLibrariesTest.ino
+//    Testing custom built library. Counts up from 0 to 9 on the 7 seg display.
+
 #include <LEDring_functions.h>
 #include <LEDring_patterns.h>
 #include <pin_definitions.h>

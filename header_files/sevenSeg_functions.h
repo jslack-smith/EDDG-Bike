@@ -1,5 +1,5 @@
-#IFNDEF SEVENSEG_FUNCTIONS_H
-#DEFINE SEVENSEG_FUNCTIONS_H
+#ifndef SEVENSEG_FUNCTIONS_H
+#define SEVENSEG_FUNCTIONS_H
 
 // 7seg_functions.h
 //   Contains functions to interface with the 7 seg display
@@ -16,4 +16,4 @@ bool sevenSeg_set( int num );
 void sevenSeg_blank();
 
 
-#ENDIF
+#endif

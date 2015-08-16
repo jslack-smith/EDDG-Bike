@@ -1,5 +1,5 @@
-#IFNEDF PIN_DEFINTIONS_H
-#DEFIN PIN_DEFINITIONS_H
+#ifndef PIN_DEFINTIONS_H
+#define PIN_DEFINITIONS_H
 // pin_definitions.h
 //   Contains pin definitions
 
@@ -8,17 +8,23 @@
 #define ring_clkPin     1
 
 
-//  7 Seg Display
-#define sevenSeg_BLpin  1
+// 7 Seg Display
+#define BLpin           1
 
-#define
+#define ABCDpin0        1
+#define ABCDpin1        1
+#define ABCDpin2        1
+#define ABCDpin3        1
 
-#define PH              0   // not a pin. PH is tied int hardware.
-#define numOfDigits     3
+#define LDpin0          1
+#define LDpin1          1
+#define LDpin2          1
 
-// extern const int ABCD[4];
-// extern const int ABCDpins[4];
-// extern int digitgs[3];
+//extern const int ABCDpins[4];
+//extern const int LDpins[3];
+
+//extern int ABCD[4];
+//extern int digits[3];
 
 //  Bike panel
 
@@ -32,4 +38,4 @@ void declarePins()
 }
 */
 
-#ENDIF
+#endif

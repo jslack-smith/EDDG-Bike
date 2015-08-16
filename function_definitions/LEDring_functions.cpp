@@ -1,6 +1,9 @@
 // LEDring_functions.cpp
 //  temporary container for LED ring function definitions
 
+#include "Arduino.h"
+#include "LEDring_functions.h"
+
 void LEDring_patternDelay( short pattern[], int period )
 {
     for( int i = 0; i < sizeof(pattern)/sizeof(int); i++) {

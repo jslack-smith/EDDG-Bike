@@ -1,5 +1,5 @@
-#IFNDEF LEDRING_FUNCTIONS_H
-#DEFINE LEDRING_FUNCTIONS_H
+#ifndef LEDRING_FUNCTIONS_H
+#define LEDRING_FUNCTIONS_H
 
 // LEDring_functions.h
 //   Contains functions to interface with the LED ring
@@ -18,4 +18,4 @@
 void LEDring_patternDelay( short pattern[], int period );
 void LEDring_set( int score );
 
-#ENDIF
+#endif

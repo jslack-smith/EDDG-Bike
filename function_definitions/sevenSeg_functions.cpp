@@ -1,14 +1,27 @@
 // sevenSeg_functions.c
 //  temporary holder for sevenSeg function definitions
 
+#include "Arduino.h"
+#include "sevenSeg_functions.h"
+
+// constants
+#define PH              0
+#define numOfDigits     3
+
 void sevenSeg_blank() {
-  digitalWrite( sevenSeg_BLpin, !PH ); // enable blanking
+  digitalWrite( BLpin, !PH ); // enable blanking
 }
 
 // writes a number to the display. Returns true if that number is 0.
 bool sevenSeg_set( int num ) {
 
-  digitalWrite( sevenSeg_BLpin, PH ); // disable blanking
+  int LDpins[3] = { LDpin0, LDpin1, LDpin2 };
+  int ABCDpins[4] = { ABCDpin0, ABCDpin1, ABCDpin2, ABCDpin3 };
+
+  int digits[3] = { 0, 0, 0 };
+  int ABCD[4] = { 0, 0, 0, 0 };
+
+  digitalWrite( BLpin, PH ); // disable blanking
 
   // enable all latches, no changes will be made to 7seg digits (even though ABCD will be changed
   for( int i = 0; i < numOfDigits; i++ ) {

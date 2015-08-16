@@ -20,5 +20,5 @@ This project is a Bike-Powered Sign, that uses a generator and battery managemen
 - [ ] Competition Mode
 - [ ] Display Final Score
 - [ ] Interrupts
-- 	[ ] Start button 
-- 	[ ] Timer
+	- [ ] Start button 
+	- [ ] Timer

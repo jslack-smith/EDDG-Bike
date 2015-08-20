@@ -5,6 +5,9 @@ The ELSOC Design and Development Group is a collection of students collaborative
 
 This project is a Bike-Powered Sign, that uses a generator and battery management system to power an EE&T LED display, whilst also providing a display of measurable metrics. It is also able to charge your phone!
 
+##User Guide
+Make sure your sketchbook location is set to where your local repo is. Go to File -> Preferences -> Sketchbook Location in the Arduino IDE to change your sketchbook location.
+
 ##Repository Contents
 
 
@@ -12,5 +15,13 @@ This project is a Bike-Powered Sign, that uses a generator and battery managemen
 
 
 ##To-Do List
-- [ ] 
-- [ ] 
+- [ ] Interfaces
+	- [ ] 7 Segment Display (3 digits)
+	- [ ] LED Ring (16 segments)
+- [ ] Idle Mode
+- [ ] Start Sequence Countdown
+- [ ] Competition Mode
+- [ ] Display Final Score
+- [ ] Interrupts
+	- [ ] Start button 
+	- [ ] Timer

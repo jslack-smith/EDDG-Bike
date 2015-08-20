@@ -8,9 +8,27 @@
 #define PH              0
 #define numOfDigits     3
 
-void sevenSeg_blank() {
-  digitalWrite( BLpin, !PH ); // enable blanking
+void sevenSeg_blankPin( int pin ) {
+  digitalWrite( pin, !PH ); // enable blanking
 }
+
+void sevenSeg_blankAll() {
+  digitalWrite( BLpin0, !PH ); // enable blanking
+  digitalWrite( BLpin1, !PH );
+  digitalWrite( BLpin2, !PH );
+}
+
+void sevenSeg_unblankPin( int pin ) {
+  digitalWrite( pin, PH ); // enable blanking
+}
+
+void sevenSeg_unblankAll() {
+  digitalWrite( BLpin0, PH ); // enable blanking
+  digitalWrite( BLpin1, PH );
+  digitalWrite( BLpin2, PH );
+}
+
+
 
 // writes a number to the display. Returns true if that number is 0.
 bool sevenSeg_set( int num ) {
@@ -21,7 +39,8 @@ bool sevenSeg_set( int num ) {
   int digits[3] = { 0, 0, 0 };
   int ABCD[4] = { 0, 0, 0, 0 };
 
-  digitalWrite( BLpin, PH ); // disable blanking
+//  digitalWrite( BLpin, PH ); // disable blanking
+
 
   // enable all latches, no changes will be made to 7seg digits (even though ABCD will be changed
   for( int i = 0; i < numOfDigits; i++ ) {
@@ -36,6 +55,8 @@ bool sevenSeg_set( int num ) {
     tempNum = tempNum - digits[i] * (int)pow( 10, i );
   }
 
+  // blanking
+
 
   // print digits to 7 seg display
   for( int i = 0; i < numOfDigits; i++ ) {  // select digit
@@ -49,6 +70,17 @@ bool sevenSeg_set( int num ) {
     digitalWrite( LDpins[i], HIGH );  // disable curr char latch
     digitalWrite( LDpins[i], LOW ); // all latches enabled
   }
+
+  sevenSeg_unblankAll();
+
+  if( digits[2] == 0 ) {
+    sevenSeg_blankPin( BLpin2 );
+    if( digits[1] == 0 ) {
+        sevenSeg_blankPin( BLpin1 );
+    }
+  }
+
+
   if( num == 0 ) {
 		return true;
 	}

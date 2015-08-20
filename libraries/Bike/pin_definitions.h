@@ -10,15 +10,18 @@
 
 
 // 7 Seg Display
-#define BLpin           7
+#define BLpin0          1
+#define BLpin1          7
+#define BLpin2          1
+
 
 #define ABCDpin0        2
 #define ABCDpin1        3
 #define ABCDpin2        4
 #define ABCDpin3        5
 
-#define LDpin0          6
-#define LDpin1          1
+#define LDpin0          1
+#define LDpin1          6
 #define LDpin2          1
 
 

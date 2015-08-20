@@ -13,7 +13,10 @@
 #include "pin_definitions.h"
 
 bool sevenSeg_set( int num );
-void sevenSeg_blank();
+void sevenSeg_blankPin( int pin );
+void sevenSeg_blankAll();
+void sevenSeg_unblankAll();
+void sevenSeg_unblankPin( int pin );
 
 
 #endif

@@ -48,7 +48,7 @@ void LEDring_singleSet( short pattern )
 {
     // write to LEDring
     digitalWrite( ring_latchPin, 0 );
-    shiftOut( ring_dataPin, ring_clkPin, LSBFIRST, data );
+    shiftOut( ring_dataPin, ring_clkPin, LSBFIRST, pattern );
     //shiftOut( ring_dataPin, ring_clkPin, LSBFIRST, data>>8 );
     digitalWrite( ring_latchPin, 1 );
 }

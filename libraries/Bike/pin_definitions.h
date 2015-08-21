@@ -25,7 +25,7 @@
 #define LDpin2          1
 
 // Sensor
-#define SensorIn        A0
+#define sensorPin        A0
 
 //  Bike panel
 

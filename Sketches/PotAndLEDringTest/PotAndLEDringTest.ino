@@ -7,7 +7,6 @@
 #include <sevenSeg_functions.h>
 
 int sensorValue = 0;
-//int sensorPin = A0;
 
 void setup() {
   pinMode( ring_dataPin, OUTPUT );
@@ -17,7 +16,7 @@ void setup() {
 
 void loop() {
   
-  sensorValue = analogRead( sensorIn );
+  sensorValue = analogRead( sensorPin );
     
     LEDring_set(sensorValue);
     delay(20);

@@ -15,13 +15,11 @@ Make sure your sketchbook location is set to where your local repo is. Go to Fil
 
 
 ##To-Do List
-- [ ] Interfaces
-	- [ ] 7 Segment Display (3 digits)
-	- [ ] LED Ring (16 segments)
+- [x] Interfaces
+	- [x] 7 Segment Display (3 digits)
+	- [x] LED Ring (16 segments)
 - [ ] Idle Mode
 - [ ] Start Sequence Countdown
 - [ ] Competition Mode
 - [ ] Display Final Score
-- [ ] Interrupts
-	- [ ] Start button 
-	- [ ] Timer
+- [ ] Start button interrupt

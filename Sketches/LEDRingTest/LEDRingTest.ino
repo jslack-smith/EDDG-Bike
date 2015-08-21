@@ -4,14 +4,13 @@
 #include <LEDring_functions.h>
 #include <LEDring_patterns.h>
 #include <pin_definitions.h>
-
+#include <sevenSeg_functions.h>
 
 
 void setup() {
   pinMode( ring_dataPin, OUTPUT );
   pinMode( ring_clkPin, OUTPUT );
-  pinMode( ring_latchPin, OUTPUT );
-  
+  pinMode( ring_latchPin, OUTPUT );  
 }
 
 short data = B10000000;

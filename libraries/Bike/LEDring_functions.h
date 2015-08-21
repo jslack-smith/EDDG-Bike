@@ -17,6 +17,6 @@
 //  displayed for "period" ms. Uses delays.
 void LEDring_patternDelay( short pattern[], int period );
 void LEDring_set( int score );
-void LEDring_singleSet( short pattern )
+void LEDring_singleSet( short pattern );
 
 #endif

@@ -24,17 +24,9 @@
 #define LDpin1          6
 #define LDpin2          1
 
+// Sensor
+#define SensorIn        A0
 
 //  Bike panel
-
-/*
-void declarePins()
-{
-    pinMode( ring_dataPin, OUTPUT );
-    pinMode( ring_clkPin, OUTPUT );
-
-    pinMode( sevenSeg_BLpin, OUTPUT );
-}
-*/
 
 #endif

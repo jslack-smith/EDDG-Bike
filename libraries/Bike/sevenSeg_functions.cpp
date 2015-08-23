@@ -4,9 +4,7 @@
 #include "Arduino.h"
 #include "sevenSeg_functions.h"
 
-// constants
-#define PH              0
-#define numOfDigits     3
+
 
 void sevenSeg_blankPin( int pin ) {
   digitalWrite( pin, !PH ); // enable blanking

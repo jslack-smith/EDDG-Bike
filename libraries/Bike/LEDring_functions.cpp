@@ -4,15 +4,6 @@
 #include "Arduino.h"
 #include "LEDring_functions.h"
 
-void LEDring_patternDelay( short pattern[], int period )
-{
-    for( int i = 0; i < sizeof(pattern)/sizeof(int); i++) {
-        shiftOut( ring_dataPin, ring_clkPin, MSBFIRST, pattern[i]>>8 ); // shift second byte
-        shiftOut( ring_dataPin, ring_clkPin, MSBFIRST, pattern[i] );    // shift first byte
-        delay(period);
-        i++;
-    }
-}
 
 void LEDring_set( int score )
 {

@@ -25,9 +25,11 @@ void setup() {
   pinMode(LDpin1, OUTPUT);
   pinMode(LDpin2, OUTPUT);
 
+  Serial.begin( 9600 );
 }
 
 void loop() {
+  Serial.println( "Beginning start sequence." );
   // flash LED ring as recognition of start button press
   for( int numOfFlashes = 0; numOfFlashes < 2; numOfFlashes++ ) {
     LEDring_set( 1024 );   // turn all segments on
@@ -45,4 +47,5 @@ void loop() {
     LEDring_set( 0 );
     delay(500);
   }
+  Serial.println( "Ending start sequence." );
 }

@@ -5,8 +5,8 @@
 #include <pin_definitions.h>
 #include <sevenSeg_functions.h>
 
-int highScore = 0;
-bool startBtnPressed = 0;
+int highScore = 0;           
+bool startBtnPressed = 0;    // intended to be changed by start button interrupt
 short patternArray[] = {};
 
 patternArray[0] = B00000001;

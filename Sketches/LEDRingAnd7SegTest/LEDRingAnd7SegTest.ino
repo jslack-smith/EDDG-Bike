@@ -5,8 +5,10 @@
 
 #include <LEDring_functions.h>
 #include <LEDring_patterns.h>
+#include <mode_functions.h>
 #include <pin_definitions.h>
 #include <sevenSeg_functions.h>
+
 
 int sensorValue = 0; // read from analog input sensorPin (potentiometer on A0)
 int i = 0;
@@ -34,10 +36,12 @@ void setup() {
   pinMode(LDpin2, OUTPUT);
   
   Serial.begin( 9600 );
+  
+  startSequence();
 }
 
 void loop() {
-
+  
   sensorValue = analogRead( sensorPin );
   //Serial.println(sensorValue);
   LEDring_set(sensorValue);

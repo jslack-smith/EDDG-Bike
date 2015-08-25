@@ -29,14 +29,22 @@ void setup() {
 }
 
 void loop() {
+  startSequence();
+  delay(1500);
+}
+
+void startSequence() {
   Serial.println( "Beginning start sequence." );
+  sevenSeg_blankAll();
   // flash LED ring as recognition of start button press
   for( int numOfFlashes = 0; numOfFlashes < 2; numOfFlashes++ ) {
     LEDring_set( 1024 );   // turn all segments on
-    delay( 200 );
+    delay( 150 );
     LEDring_set( 0 );      // turn all segments off
-    delay( 200);
+    delay( 150 );
   }
+  
+  delay(350);  // gap between button recognition and countdown. Value chosen by trial and error.
   
   // Countdown: display 3, 2, 1 on sevenSeg at approx 1 Hz  
   //  with LEDring flashes (on then off) at approx 0.5 Hz.
@@ -47,5 +55,9 @@ void loop() {
     LEDring_set( 0 );
     delay(500);
   }
+  // reset sign
+  sevenSeg_blankAll();
+  LEDring_set( 0 );
   Serial.println( "Ending start sequence." );
+  
 }

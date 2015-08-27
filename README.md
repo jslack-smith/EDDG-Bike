@@ -18,8 +18,8 @@ Make sure your sketchbook location is set to where your local repo is. Go to Fil
 - [x] Interfaces
 	- [x] 7 Segment Display (3 digits)
 	- [x] LED Ring (16 segments)
-- [ ] Idle Mode
-- [ ] Start Sequence Countdown
+- [x] Idle Mode
+- [x] Start Sequence Countdown
 - [ ] Competition Mode
 - [ ] Display Final Score
 - [ ] Start button interrupt

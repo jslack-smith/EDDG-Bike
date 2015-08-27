@@ -22,4 +22,4 @@ Make sure your sketchbook location is set to where your local repo is. Go to Fil
 - [x] Start Sequence Countdown
 - [ ] Competition Mode
 - [ ] Display Final Score
-- [ ] Start button interrupt
+- [x] Start button interrupt

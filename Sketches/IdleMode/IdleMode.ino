@@ -54,7 +54,6 @@ void setup() {
 void loop() {
   delay(500);
   idleMode();
-  //Serial.println("Exited idle mode.");
 }
 
 void idleMode() {
@@ -65,7 +64,7 @@ void idleMode() {
   // Display pattern on LEDring  
   int i = 0;
   while( !startBtnPressed ) {  // display LEDring pattern while the start button hasn't been pressed
-    if( i = numberOfSegments ) {  // reset i if end of patternArray reached
+    if( i == numberOfSegments ) {  // reset i if end of patternArray reached
       i = 0;
     }
     LEDring_singleSet( patternArray[i] );

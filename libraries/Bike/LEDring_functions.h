@@ -1,24 +1,53 @@
+/*  LEDring_functions.h
+ *   
+ *   This file contains all definitions and function prototypes for the led ring
+ *   
+ *   Change Log: 
+ *      28th August 2015 (JL)
+ *          - clean up
+ *          - added initialisation function
+ *          - removed unused function prototypes
+ *          - converted binary patterns to hexadecimal notation and expanded to 16 bits
+ *          - added minAnalogInput and maxAnalogInput constants to make expanding easier
+ *          
+ *      27th August 2015 (JL & JSS)
+ *          - fixed bug (inverted output of patterns)
+ *          
+ *      25th August 2015 (JSS)
+ *          - clean up
+ *          - fixed bug (variable and definition conflict of "numberOfSegments")
+ *          
+ *      23rd August 2015 (JSS) 
+ *          - added "numberOfSegments" constant definition
+ *          
+ *      21st August 2015 (JSS)
+ *          - fixed bug (missing semi-colon)
+ *          
+ *      16th August 2015 (JSS)
+ *          - created file with initial definitions
+ */
+
 #ifndef LEDRING_FUNCTIONS_H
 #define LEDRING_FUNCTIONS_H
 
-// LEDring_functions.h
-//   Contains functions to interface with the LED ring
-
-/* Circuit Specs:
-    - 2 74HC595 IC's
-    - 2 High Current Darlington Array IC's
-    - 16 segments
-
-*/
-
+// include all necessary local header files
 #include "pin_definitions.h"
 
-// constants
-#define numberOfSegments 8
+/***********************************
+ *            Constants            *
+ ***********************************/
+#define numOfSegments     8
+#define minAnalogInput    0
+#define maxAnalogInput    1024
 
-// takes a array of 16-bit shorts (pattern[]) and displays it on the LEDring. Each short in pattern is
-//  displayed for "period" ms. Uses delays.
-void LEDring_set( int score );
-void LEDring_singleSet( short pattern );
+/***********************************
+ *       Function Prototypes       *
+ ***********************************/
+// initialisation functions
+void LEDring_initialise();
+
+// setting functions
+void LEDring_set(int score);
+void LEDring_singleSet(short pattern);
 
 #endif

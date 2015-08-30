@@ -9,17 +9,37 @@ This project is a Bike-Powered Sign, that uses a generator and battery managemen
 Make sure your sketchbook location is set to where your local repo is. Go to File -> Preferences -> Sketchbook Location in the Arduino IDE to change your sketchbook location.
 
 ##Repository Contents
-
+sketches/ contains all Arduino sketches for testing and running
+libraries/ contains all .h files and .cpp files for declaring functions and constants
 
 ##Change Log
-
+See the change log at the top of each file to see the changes made to each specific file.
 
 ##To-Do List
-- [x] Interfaces
-	- [x] 7 Segment Display (3 digits)
-	- [x] LED Ring (16 segments)
-- [x] Idle Mode
-- [x] Start Sequence Countdown
-- [ ] Competition Mode
-- [ ] Display Final Score
-- [x] Start button interrupt
+- [ ] Interfaces:
+	- [x] Seven Segment display (3 digits)
+	- [x] LED ring (16 segments)
+	- [x] Start button interrupt
+	- [ ] Mode select button interrupt
+	- [ ] LED indicator lights for bike display (mode in use)
+
+- [ ] Modes:
+	- [x] Start sequence countdown
+	- [x] Idle mode
+	- [ ] Free-run mode
+	- [x] Competition mode
+	- [ ] Implement dual mode system
+
+- [ ] Free-Run Mode:
+	- [ ] Implement start on first button press (with start sequence)
+	- [ ] Implement end on second button press (with end sequence?)
+	- [ ] Display peak score whilst riding
+	- [ ] Update LEDring based on sampled score (~100ms)
+
+- [x] Competition Mode:
+	- [x] Implement start on button press (with start sequence)
+	- [x] Display final score (average over 30 seconds)
+	- [x] Update LEDring based on sampled score (~100ms)
+
+- [ ] Other:
+	- [ ] Store high score in EEPROM for data retention

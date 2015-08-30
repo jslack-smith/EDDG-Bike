@@ -13,10 +13,12 @@
 
 #include "pin_definitions.h"
 
+// constants
+#define numberOfSegments 8
+
 // takes a array of 16-bit shorts (pattern[]) and displays it on the LEDring. Each short in pattern is
 //  displayed for "period" ms. Uses delays.
-void LEDring_patternDelay( short pattern[], int period );
 void LEDring_set( int score );
-void LEDring_singleSet( short pattern )
+void LEDring_singleSet( short pattern );
 
 #endif

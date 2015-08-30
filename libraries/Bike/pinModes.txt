@@ -1,0 +1,16 @@
+  // LED ring 
+  pinMode( ring_dataPin, OUTPUT );
+  pinMode( ring_clkPin, OUTPUT );
+  pinMode( ring_latchPin, OUTPUT );  
+  
+  // 7 Seg Display
+  pinMode(BLpin0, OUTPUT);
+  pinMode(BLpin1, OUTPUT);
+  pinMode(BLpin2, OUTPUT);
+  pinMode(ABCDpin0, OUTPUT);
+  pinMode(ABCDpin1, OUTPUT);
+  pinMode(ABCDpin2, OUTPUT);
+  pinMode(ABCDpin3, OUTPUT);
+  pinMode(LDpin0, OUTPUT);
+  pinMode(LDpin1, OUTPUT);
+  pinMode(LDpin2, OUTPUT);

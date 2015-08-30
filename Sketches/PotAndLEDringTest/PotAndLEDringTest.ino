@@ -6,6 +6,7 @@
 #include <pin_definitions.h>
 #include <sevenSeg_functions.h>
 
+int sensorValue = 0;
 
 void setup() {
   pinMode( ring_dataPin, OUTPUT );
@@ -13,24 +14,11 @@ void setup() {
   pinMode( ring_latchPin, OUTPUT );  
 }
 
-short data = B10000000;
-
 void loop() {
-  /*for( int i = 0; i < 522; i++ ) {
-    LEDring_singleSet( i );
-    delay(1);
-  } */
+  
+  sensorValue = analogRead( sensorPin );
     
-    LEDring_singleSet(data);
-    delay(1000);
-    data >> 1;
-    if(data == B00000000) {
-      data = B10000000;
-    }
+    LEDring_set(sensorValue);
+    delay(20);
     
-  /*
-  digitalWrite( ring_latchPin, 0 );
-  shiftOut( ring_dataPin, ring_clkPin, LSBFIRST, data );
-  digitalWrite( ring_latchPin, 1 );
-  */
 }

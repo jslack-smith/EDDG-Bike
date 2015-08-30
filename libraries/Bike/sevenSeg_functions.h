@@ -12,6 +12,10 @@
 
 #include "pin_definitions.h"
 
+// constants
+#define PH              0
+#define numOfDigits     3
+
 bool sevenSeg_set( int num );
 void sevenSeg_blankPin( int pin );
 void sevenSeg_blankAll();

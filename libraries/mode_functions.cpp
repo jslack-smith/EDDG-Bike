@@ -56,7 +56,7 @@ void startSequence() {
 //     this function runs a series of animations whilst
 //     there is nothing else happening
 void idleMode() {
-
+  
   // create variables for use in the function
   int i = 0;
   int loops = 0;
@@ -88,7 +88,6 @@ void idleMode() {
     if(loops >= 5) {
       change = !change;
       loops = 0;
-      startBtnPressed = 1;
     }
   }
   return;

@@ -36,9 +36,9 @@
 //     this function intialises the led ring display by
 //     setting all the necessary pins to the correct pin modes
 void LEDring_initialise() {
-  pinMode( ring_dataPin, OUTPUT );
-  pinMode( ring_clkPin, OUTPUT );
-  pinMode( ring_latchPin, OUTPUT ); 
+  pinMode(ring_dataPin, OUTPUT);
+  pinMode(ring_clkPin, OUTPUT);
+  pinMode(ring_latchPin, OUTPUT); 
 }
 
 // LEDring_set(int score)
@@ -85,7 +85,7 @@ void LEDring_set(int score) {
 void LEDring_singleSet( short pattern ) {
     
     // XOR the pattern with 1's to invert the pattern (since it is common anode)
-    pattern = 0x00FF^pattern;
+    pattern = B11111111^pattern;
   
     // write the data to the led ring by shifting the data out
     digitalWrite(ring_latchPin, 0);

@@ -28,7 +28,7 @@
  *            Variables            *
  ***********************************/
 extern int highScore;
-extern bool startBtnPressed;
+volatile extern bool startBtnPressed;
 
 /***********************************
  *       Function Prototypes       *

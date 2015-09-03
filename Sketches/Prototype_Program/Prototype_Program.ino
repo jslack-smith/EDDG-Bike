@@ -4,12 +4,15 @@
 #include "LEDring_functions.h"
 #include "sevenSeg_functions.h"
 
+// define how long the rider needs to ride for (seconds)
+#define runtime 10
+
 // create variables for use in the program
-int average = 0;
-int highScore = 7;
+long average = 0;
+int highScore = 0;
 long start_time = 0;
 int analogSample = 0;
-bool startBtnPressed = 0;
+volatile bool startBtnPressed = 0;
 
 void setup() {
 
@@ -23,7 +26,8 @@ void setup() {
   pinMode(sensorPin, INPUT);
 
   // setup the start button pin as an interrupt
-  attachInterrupt(startBtnInt, startInterrupt, FALLING);
+  pinMode(2, INPUT);
+  attachInterrupt(startBtnInt, startInterrupt, CHANGE);
 }
 
 void loop() {
@@ -42,39 +46,41 @@ void loop() {
   start_time = millis();
   
   // sample every 100ms for 30 seconds (and update the led ring)
-  while(millis() - start_time <= 30000) {
+  sevenSeg_set(30);
+  while(millis() - start_time <= runtime*1000) {
     analogSample = analogRead(sensorPin);
     LEDring_set(analogSample);
     average += analogSample;
     delay(100);
+    sevenSeg_set(runtime - ((millis() - start_time))/1000);
   }
   
   // clear the led ring
   LEDring_set(0);
   
   // flash the average score on the seven segment display (five times)
-  sevenSeg_set(average/300);
+  sevenSeg_set(average/(runtime*10));
   delay(1000);
   sevenSeg_blankPin(BLpin0);
   delay(1000);
-  sevenSeg_set(average/300);
+  sevenSeg_set(average/(runtime*10));
   delay(1000);
   sevenSeg_blankPin(BLpin0);
   delay(1000);
-  sevenSeg_set(average/300);
+  sevenSeg_set(average/(runtime*10));
   delay(1000);
   sevenSeg_blankPin(BLpin0);
   delay(1000);
-  sevenSeg_set(average/300);
+  sevenSeg_set(average/(runtime*10));
   delay(1000);
   sevenSeg_blankPin(BLpin0);
   delay(1000);
-  sevenSeg_set(average/300);
+  sevenSeg_set(average/(runtime*10));
   delay(1000);
 
   // update the highscore if it has been broken
-  if(analogSample > highScore) {
-    highScore = analogSample;
+  if(average/(runtime*10) > highScore) {
+    highScore = average/(runtime*10);
   }
 }
 

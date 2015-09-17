@@ -6,9 +6,11 @@
 
 // define how long the rider needs to ride for (seconds)
 #define runtime 10
+#define ARRAY_LENGTH  10
 
 // create variables for use in the program
 long average = 0;
+int score_array[ARRAY_LENGTH] = {0};
 int highScore = 0;
 long start_time = 0;
 int analogSample = 0;
@@ -82,6 +84,22 @@ void loop() {
     delay(1000);
     sevenSeg_set(average/(runtime*10));
     delay(1000);
+  
+    int i = 0;
+
+    while((i < (ARRAY_LENGTH - 1)) && (score_array[i] > average/(runtime*10))) {
+	    i++;
+    }
+
+    if(i < ARRAY_LENGTH) {
+	    for(int j = (ARRAY_LENGTH - 1); j >= i; j--) {
+		    score_array[j] = score_array[j - 1];
+	    }
+	    score_array[i] = average/(runtime*10);
+    }
+
+sevenSeg_set(i+1);
+delay(5000);
   
     // update the highscore if it has been broken
     if(average/(runtime*10) > highScore) {

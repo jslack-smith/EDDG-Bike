@@ -3,6 +3,9 @@
  *   This file contains all pin definitions for the ELSOC Design and Development Group Bike. 
  *   
  *   Change Log: 
+ *      17th September (JL)
+ *          - added 'modeBtnInterrupt'
+ *
  *      27th August 2015 (JL) 
  *          - clean up
  *          

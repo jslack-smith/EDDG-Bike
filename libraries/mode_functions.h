@@ -3,10 +3,6 @@
  *   This file contains all function prototypes and constant definitions for the different modes.
  *   
  *   Change Log: 
- *      
- *      17th September 2015 (JL)
- *          - added chargingMode
- *          - added extern variable for mode button
  *
  *      28th August 2015 (JL)
  *          - clean up
@@ -34,13 +30,11 @@
  ***********************************/
 extern int highScore;
 volatile extern bool startBtnPressed;
-volatile extern bool modeBtnPressed;
 
 /***********************************
  *       Function Prototypes       *
  ***********************************/
 void startSequence();
 void idleMode();
-void chargingMode();
 
 #endif

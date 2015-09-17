@@ -53,5 +53,6 @@
  *              Button             *
  ***********************************/
 #define startBtnInt     0
+#define modeBtnInt      1
 
 #endif

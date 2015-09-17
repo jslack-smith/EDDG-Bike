@@ -13,6 +13,7 @@ int highScore = 0;
 long start_time = 0;
 int analogSample = 0;
 volatile bool startBtnPressed = 0;
+volatile bool modeBtnPressed = 0;
 
 void setup() {
 
@@ -26,8 +27,10 @@ void setup() {
   pinMode(sensorPin, INPUT);
 
   // setup the start button pin as an interrupt
-  pinMode(2, INPUT);
   attachInterrupt(startBtnInt, startInterrupt, CHANGE);
+  
+  // setup the mode button pin as an interrupt
+  attachInterrupt(modeBtnInt, modeInterrupt, CHANGE);
 }
 
 void loop() {
@@ -42,45 +45,62 @@ void loop() {
   delay(100);
   startSequence();
   
-  // start timing the user
-  start_time = millis();
+  if(modeBtnPressed == 0) {
   
-  // sample every 100ms for 30 seconds (and update the led ring)
-  sevenSeg_set(30);
-  while(millis() - start_time <= runtime*1000) {
-    analogSample = analogRead(sensorPin);
-    LEDring_set(analogSample);
-    average += analogSample;
-    delay(100);
-    sevenSeg_set(runtime - ((millis() - start_time))/1000);
+    // start timing the user
+    start_time = millis();
+    
+    // sample every 100ms for 30 seconds (and update the led ring)
+    sevenSeg_set(30);
+    while(millis() - start_time <= runtime*1000) {
+      analogSample = analogRead(sensorPin);
+      LEDring_set(analogSample);
+      average += analogSample;
+      delay(100);
+      sevenSeg_set(runtime - ((millis() - start_time))/1000);
+    }
+    
+    // clear the led ring
+    LEDring_set(0);
+    
+    // flash the average score on the seven segment display (five times)
+    sevenSeg_set(average/(runtime*10));
+    delay(1000);
+    sevenSeg_blankAll();
+    delay(1000);
+    sevenSeg_set(average/(runtime*10));
+    delay(1000);
+    sevenSeg_blankAll();
+    delay(1000);
+    sevenSeg_set(average/(runtime*10));
+    delay(1000);
+    sevenSeg_blankAll();
+    delay(1000);
+    sevenSeg_set(average/(runtime*10));
+    delay(1000);
+    sevenSeg_blankAll();
+    delay(1000);
+    sevenSeg_set(average/(runtime*10));
+    delay(1000);
+  
+    // update the highscore if it has been broken
+    if(average/(runtime*10) > highScore) {
+      highScore = average/(runtime*10);
+    }
   }
   
-  // clear the led ring
-  LEDring_set(0);
-  
-  // flash the average score on the seven segment display (five times)
-  sevenSeg_set(average/(runtime*10));
-  delay(1000);
-  sevenSeg_blankPin(BLpin0);
-  delay(1000);
-  sevenSeg_set(average/(runtime*10));
-  delay(1000);
-  sevenSeg_blankPin(BLpin0);
-  delay(1000);
-  sevenSeg_set(average/(runtime*10));
-  delay(1000);
-  sevenSeg_blankPin(BLpin0);
-  delay(1000);
-  sevenSeg_set(average/(runtime*10));
-  delay(1000);
-  sevenSeg_blankPin(BLpin0);
-  delay(1000);
-  sevenSeg_set(average/(runtime*10));
-  delay(1000);
-
-  // update the highscore if it has been broken
-  if(average/(runtime*10) > highScore) {
-    highScore = average/(runtime*10);
+  // if the mode is charging mode
+  else {
+    
+    // turn the seven segment displays off
+    sevenSeg_blankAll();
+    
+    // continuously read in the sensor value until the start button is pressed and display it on the ring
+    while(!startBtnPressed) {
+      analogSample = analogRead(sensorPin);
+      LEDring_set(analogSample);
+      delay(100);
+    }
   }
 }
 
@@ -88,4 +108,10 @@ void startInterrupt() {
   
   // set the start button flag
   startBtnPressed = 1;
+}
+
+void modeInterrupt() {
+  
+  // set the mode button flag
+  modeBtnPressed = !modeBtnPressed;
 }

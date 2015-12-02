@@ -3,6 +3,7 @@
  *   This file contains all function prototypes and constant definitions for the different modes.
  *   
  *   Change Log: 
+ *
  *      28th August 2015 (JL)
  *          - clean up
  *          - added idleMode
